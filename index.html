@@ -10,45 +10,178 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!--Css link-->
-    <link rel="stylesheet" type="text/css" href="\assets\style\style.css">
+    <link rel="stylesheet" type="text/css" href="/assets/style/style.css">
+
+    <!-- GOOGLE FONTS -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Changa:300,400,500,600,700,800|Roboto:300,300i,400,400i,500,500i,700,700i,900,900i&display=swap"
+        rel="stylesheet">
 
 
     <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+        integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
 
-        
-    
+
+
 </head>
 
 <body>
-    
-    <div class="container">
-        <h1>BrewerySearch</h1>
+
+
+
+    <div class="container-fluid">
+
+        <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand" href="#">
+                <img src="../assets/images/brewerysearch-logo.png" height="60" alt="" id="logo">
+            </a>
+        </nav>
+
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1>Search For Your Next Favorite Brewery</h1>
+                <p>Lorem ipsum dolor sit amet.</p>
+            </div>
+        </div>
+        <div class="header">
+
+                <form>
+                        <h3>Search Here</h3>
+                        <div class="form-row">
+                          <div class="col">
+                            <input type="text" class="form-control search-brewery location" placeholder="By City..." id="searchCity">
+                          </div>
+                          <div class="col">
+                            <input type="text" class="form-control search-brewery location" placeholder="By State..." id="searchState">
+                          </div>
+                          <div class="col">
+                          <button type="button" class="btn btn-warning" id="searchButton">Search</button>
+                          </div>
+                        </div>
+                      </form>
+
+                      <br><br>
+
+                      <div class="searchResults">
+
+                          <h3>Search Results:</h3>
+
+                          <div class="card">
+                                <div class="card-body">
+                                    <img src="../assets/images/hop-icon.png" id="resultIcon">
+                                  <h5 class="card-title">Brewery One</h5>
+                                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                  <a href="#" class="btn btn-warning">View Website</a>
+                                </div>
+                              </div>
+
+                              <div class="card">
+                                    <div class="card-body">
+                                        <img src="../assets/images/hop-icon.png" id="resultIcon">
+                                      <h5 class="card-title">Brewery Two</h5>
+                                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                      <a href="#" class="btn btn-warning">View Website</a>
+                                    </div>
+                                  </div>
+
+                                  <div class="card">
+                                        <div class="card-body">
+                                            <img src="../assets/images/hop-icon.png" id="resultIcon">
+                                          <h5 class="card-title">Brewery Three</h5>
+                                          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                          <button href="" type="button" class="btn btn-warning" id="viewButton">View Website</button>
+                                        </div>
+                                      </div>
+
+                      </div>
 
 
 
 
 
-    <!-- end of bootstrap container -->
-    </div>
+
+
+
+            <!-- GOOGLE MAPS DIV -->
+            <div id="mapBox">
+
+
+
+                <style>
+                    /* Always set the map height explicitly to define the size of the div
+           * element that contains the map. */
+                    #map {
+                        height: 100%;
+                    }
+
+                    /* Optional: Makes the sample page fill the window. */
+                    html,
+                    body {
+                        height: 100%;
+                        margin: 0;
+                        padding: 0;
+                    }
+                </style>
+
+                    <div id="map"></div>
+                    <script>
+                        var map;
+                        function initMap() {
+                            map = new google.maps.Map(document.getElementById('map'), {
+                                zoom: 2,
+                                center: new google.maps.LatLng(2.8, -187.3),
+                                mapTypeId: 'terrain'
+                            });
+
+                            // Create a <script> tag and set the USGS URL as the source.
+                            var script = document.createElement('script');
+                            // This example uses a local copy of the GeoJSON stored at
+                            // http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojsonp
+                            script.src = 'https://developers.google.com/maps/documentation/javascript/examples/json/earthquake_GeoJSONP.js';
+                            document.getElementsByTagName('head')[0].appendChild(script);
+                        }
+
+                        // Loop through the results array and place a marker for each
+                        // set of coordinates.
+                        window.eqfeed_callback = function (results) {
+                            for (var i = 0; i < results.features.length; i++) {
+                                var coords = results.features[i].geometry.coordinates;
+                                var latLng = new google.maps.LatLng(coords[1], coords[0]);
+                                var marker = new google.maps.Marker({
+                                    position: latLng,
+                                    map: map
+                                });
+                            }
+                        }
+                    </script>
+                    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDBTtU-kE0j8HquFS6vhbZsIAoWEqBOK9E&callback=initMap">
+                   </script>
+            </div>
+
+
+
+            <!-- end of bootstrap container -->
+        </div>
 
 
 
 
 
 
-    <!--Map link-->
+        <!--Map link-->
 
-    <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDBTtU-kE0j8HquFS6vhbZsIAoWEqBOK9E&callback=initMap"
+        <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDBTtU-kE0j8HquFS6vhbZsIAoWEqBOK9E&callback=initMap"
     type="text/javascript"></script> -->
-    
-    <!-- js link -->
-    <script src="./assets/javascript/javascript.js"></script>
+
+        <!-- js link -->
+        <script src="./assets/javascript/javascript.js"></script>
 </body>
 
 </html>
