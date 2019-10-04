@@ -1,0 +1,90 @@
+.jumbotron {
+    color: white;
+    background-image: url("../images/heroimage-brewerysearch.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 500px;
+  }
+
+#mapBox {
+    max-height: 500px;
+    max-width: 500px;
+}
+#map {
+    max-height: 500px;
+    max-width: 500px;
+}
+
+h1 {
+    font-family: 'Changa', sans-serif;
+    font-weight: bolder;
+    font-size: 60px;
+    line-height: 65px;
+}
+
+h3 {
+    font-family: 'Changa', sans-serif;
+    font-weight: bolder;
+    font-size: 32px;
+    color: #2E2E2E;
+
+}
+
+h5 {
+
+    font-family: 'Changa', sans-serif;
+    font-weight: bold;
+    font-size: 24px;
+    color: #2E2E2E;
+
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+
+}
+
+#filter-category {
+    font-family: 'Roboto', sans-serif;
+}
+
+button {
+    font-family: 'Changa', sans-serif;
+    font-weight: bolder;
+    background-color: #EFA83C;
+    color: #fff;
+    height: 40px;
+    width: 140px;
+}
+
+btn-warning {
+    font-family: 'Changa', sans-serif;
+    font-weight: bolder;
+    background-color: #EFA83C;
+    color: #fff;
+
+}
+
+#logo{
+    margin-left: 20px;
+}
+
+.card{
+    width: 400px;
+    border: none;
+}
+
+#resultIcon{
+    float:left;
+    width: 40px;
+    margin-right: 20px;
+
+}
+
+
+
+
+
+
+ 
