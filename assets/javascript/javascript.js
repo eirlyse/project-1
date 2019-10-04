@@ -34,10 +34,12 @@ $("#searchButton").on("click", function() {
                     let state = response[i].state;
                     let phone = response[i].phone;
                     brewery[i] = new Brewery(name, street, city, state, phone);
-
-                    console.log(brewery[i]);
                 }
                 console.log(brewery);
+
+                //need to send address of each location to google geocoding API to convert to lat/long
+                //send each lat/long to google map API and set map and markers
+                
 
             },
             function (error) {
