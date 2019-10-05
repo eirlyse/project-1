@@ -144,7 +144,7 @@ $("#searchButton").on("click", function () {
             links.html("View Website");
             cardBody.append(a);
             
-            var img = $('<img src="../assets/images/hop-icon.png" id="resultIcon">');
+            var img = $('<img src="assets/images/hop-icon.png" id="resultIcon">');
             cardBody.prepend(img);
             $(".searchResults").append(card);
         };
