@@ -74,6 +74,7 @@ $("#searchButton").on("click", function () {
     console.log(searchCity, searchState);
 
 
+
     let queryURL = `https://api.openbrewerydb.org/breweries?by_city=${searchCity}&by_state=${searchState}&per_page=10`
     // to set number of results, add &per_page=10
     // strings must have spaces replaced with "_"
@@ -151,6 +152,7 @@ $("#searchButton").on("click", function () {
     }).catch(function (error) {
         console.log(error);
     })
+ 
 });
 
 
