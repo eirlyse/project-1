@@ -115,11 +115,12 @@ $("#searchButton").on("click", function () {
             card.attr("class", "card");
             var cardBody = $("<div>");
             cardBody.attr("class","card-title");
-
             cardBody.css("padding", "20px");
+            
             card.append(cardBody);
             var h = $("<h5>").text(response[i].name);
             h.addClass("pb-3");
+            h.css("word-wrap", "break-word");
             cardBody.append(h);
             var cardText = $("<p>").html(element + "<br><b> Phone Number: </b>" + response[i].phone + "<br><b>Type:</b> " + response[i].brewery_type)
             cardBody.append(cardText)
@@ -164,7 +165,7 @@ class Brewery {
         this.street = street;
         this.city = city;
         this.state = state;
-        this.phone = phone
+        this.phone = phone;
         this.address = `${street},${city},${state}`;
         this.website = website;
     };

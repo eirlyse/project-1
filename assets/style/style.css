@@ -69,13 +69,14 @@ table {
 #mapBox {
     /* max-height: 500px;
     max-width: 500px; */
-    float: right;
+    /* float: right; */
+    display: block;
 }
+
 #map {
     /* max-height: 500px;
     max-width: 500px; */
-    float: right;
-    
+    /* float: right; */
     
 }
 
@@ -213,6 +214,7 @@ button {
 #map {
     width: 600px;
     height: 600px;
+    
 }
 
 .form-control:focus {
@@ -242,6 +244,8 @@ select:-webkit-autofill:focus {
 .fa-arrow-right{
     margin-left: 10px;
 }
+
+
 
 
 
