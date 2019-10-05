@@ -141,7 +141,9 @@ $("#searchButton").on("click", function () {
             a.attr("target", "_blank");
             a.css("float", "right");
             a.css("margin-right", "165px");
-            links.html("View Website");
+            a.css("padding-top", "20px");
+          
+            links.html(`View Website<i class="fas fa-arrow-right"></i>`);
             cardBody.append(a);
             
             var img = $('<img src="assets/images/hop-icon.png" id="resultIcon">');
