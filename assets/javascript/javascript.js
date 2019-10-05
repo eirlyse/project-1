@@ -8,7 +8,7 @@ let city = {
     fields: ['name', 'geometry'],
 };
 
-var icon = '/assets/images/hop-icon.png'
+var icon = './assets/images/hop-icon.png'
 function createMark(place) {
     let marker = new google.maps.Marker({
         map: map,
